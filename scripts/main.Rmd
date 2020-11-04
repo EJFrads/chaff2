@@ -21,6 +21,19 @@ This is the introduction
 
 #Methods
 This is the methods
+```{r import data}
+# the working directory is in the scripts folder
+# had to use backwards relative path to get to data
+chaff_raw <- read.table("../data_raw/chaff.txt", header = T)
+```
+
+```{r tidy data}
+chaff_tidy <- pivot_longer(data = chaff_raw,
+                           cols = everything(),
+                           names_to = "sex",
+                           values_to = "mass")
+```
+
 
 #Results
 
