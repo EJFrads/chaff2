@@ -34,6 +34,15 @@ chaff_tidy <- pivot_longer(data = chaff_raw,
                            values_to = "mass")
 ```
 
+```{r create function}
+# the double braces are used to indicate a column of a dataframe
+sum_sq <- function(df, measure, group) {
+  df %>% group_by({{ group }}) %>% 
+    summarise(ss = sum(({{measure}} - mean({{measure}}))^2))
+}
+
+sum_sq(chaff_tidy, mass, sex)
+```
 
 #Results
 
