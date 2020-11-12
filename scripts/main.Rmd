@@ -84,15 +84,19 @@ knitr::kable(chaff_sum,
 
 The summary of the data (See Table \@ref(tab:summary-table)) shows that males are approximately 2g heavier than females. Using a t.test we found that this was statistically significant (p-value = `r round(chaff_p, 3)`) which means that males are in fact on average larger than females. This can also be seen in Figure (ggplot)
 
-(ref:chaff-fig) Box plot of the mass of chaffinches for males and females, lines show whatever.
+(ref:chaff-plot) Box plot of the mass of chaffinches (g) for males and females, points show individual measures.
 
-```{r chaff_plot, fig.height=4, fig.width=4, fig.cap="(ref:chaff-fig)"}
-
+```{r chaff-plot, fig.cap='(ref:chaff-plot)'}
+chaff_tidy %>%
+  ggplot( aes(x=sex, y=mass, fill=sex)) +
+  geom_boxplot() +
+  geom_jitter(color="black", size=0.4, alpha=0.9) +
+  theme_bw()+
+  ggtitle("Mass of Chaffinches by Sex") +
+  xlab("Sex")+
+  ylab("Mass (g)")
 
 ```
-
-
-
 
 
 ```{r summary-function, include=FALSE}
