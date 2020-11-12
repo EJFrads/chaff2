@@ -1,7 +1,9 @@
 ---
-title: "Week 6 Workshop - Chaff"
+title: "Week 6/7 Workshop - Chaff"
 author: Emily Fradley
-output: html_document
+output:
+  bookdown::html_document2: default
+bibliography: chaffref.bib
 ---
 
 ```{r setup, include=FALSE}
@@ -17,7 +19,7 @@ library(bookdown)
 ```
 
 #Introduction
-This is the introduction 
+Chaffinches (*Fringilla coelebs*) are one of the most wide spread and abundant birds in Britian [@noauthor_undated-dq]. 
 
 #Methods
 This is the methods
