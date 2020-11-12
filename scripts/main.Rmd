@@ -1,5 +1,5 @@
 ---
-title: "Week 6/7 Workshop - Chaff"
+title: "Week 6/7 Workshop - Chaffinches"
 author: Emily Fradley
 output:
   bookdown::html_document2: default
@@ -16,13 +16,21 @@ knitr::opts_chunk$set(echo = FALSE,
 ```{r packages}
 library(tidyverse)
 library(bookdown)
+library(citr)
 ```
 
-#Introduction
-Chaffinches (*Fringilla coelebs*) are one of the most wide spread and abundant birds in Britian [@noauthor_undated-dq]. 
+# Introduction
+Chaffinches (*Fringilla coelebs*) are one of the most wide spread and abundant birds in Britian [@noauthor_undated-dq]. The average weight of the chaffinch is around 24g [@noauthor_undated-js] but it is unstated whether there is a difference between male and female averages. Since male and female chaffinches have such widely varying colour and plumage (see Figure \@ref(fig:chaff-fig)) it is reasonable to assume they would differ in mass too. That's what our analysis hopes to uncover.
 
-#Methods
-This is the methods
+(ref:chaff-cap) Photo of a male (left) and a female (right) chaffinch showcasing their differing colour patterns. Copyright ©2007, Fonzy, https://myolympus.org/document.php?id=9285
+
+```{r chaff-fig, out.height="200px", fig.cap='(ref:chaff-cap)'}
+knitr::include_graphics("../figures/chaffphoto.jpg")
+
+```
+
+# Methods
+
 ```{r import data}
 # the working directory is in the scripts folder
 # had to use backwards relative path to get to data
@@ -46,7 +54,7 @@ sum_sq <- function(df, measure, group) {
 sum_sq(chaff_tidy, mass, sex)
 ```
 
-#Results
+# Results
 
 ```{r summary function}
 # create function that summarizes data and includes
@@ -62,5 +70,6 @@ data_summary <- function(df, measure, group){
 data_summary(chaff_tidy, mass, sex)
 ```
 
+# Disscussion
 
-#Disscussion
+# References
