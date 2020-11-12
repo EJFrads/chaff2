@@ -67,9 +67,38 @@ We measured the mass of `r chaff_sum$n[1]` chaffinches for both sexes and used R
 
 # Results
 
-```{r summary-function}
+```{r statistics-test}
+#Test the significance of the mass differnce using t.test
+t_test <- t.test(data=chaff_tidy, mass~sex)
+#Save the p-value output for in-line reporting
+chaff_p <- t_test$p.value
+```
+
+
+```{r summary-table}
+knitr::kable(chaff_sum,
+             digits = 2,
+             caption = 'A summary of the data.',
+             row.names = FALSE)
+```
+
+The summary of the data (See Table \@ref(tab:summary-table)) shows that males are approximately 2g heavier than females. Using a t.test we found that this was statistically significant (p-value = `r round(chaff_p, 3)`) which means that males are in fact on average larger than females. This can also be seen in Figure (ggplot)
+
+(ref:chaff-fig) Box plot of the mass of chaffinches for males and females, lines show whatever.
+
+```{r chaff_plot, fig.height=4, fig.width=4, fig.cap="(ref:chaff-fig)"}
+
+
+```
+
+
+
+
+
+```{r summary-function, include=FALSE}
 # create function that summarizes data and includes
 # mean, sd, smaple size, se
+#THIS IS FOR REFERENCE ONLY ATM IM NOT USING IT
 data_summary <- function(df, measure, group){
  df %>% group_by({{group}}) %>% 
   summarise(mean = mean({{measure}}),
@@ -80,6 +109,7 @@ data_summary <- function(df, measure, group){
 
 data_summary(chaff_tidy, mass, sex)
 ```
+
 
 # Disscussion
 

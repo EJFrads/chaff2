@@ -394,11 +394,35 @@ Figure 1.1: Photo of a male (left) and a female (right) chaffinch showcasing the
 </div>
 <div id="results" class="section level1">
 <h1><span class="header-section-number">3</span> Results</h1>
-<pre><code>## # A tibble: 2 x 5
-##   sex      mean     n    sd    se
-##   &lt;chr&gt;   &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;
-## 1 females  20.5    20  2.14 0.478
-## 2 males    22.3    20  2.15 0.481</code></pre>
+<table>
+<caption><span id="tab:summary-table">Table 3.1: </span>A summary of the data.</caption>
+<thead>
+<tr class="header">
+<th align="left">sex</th>
+<th align="right">mean</th>
+<th align="right">std</th>
+<th align="right">n</th>
+<th align="right">se</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">females</td>
+<td align="right">20.48</td>
+<td align="right">2.14</td>
+<td align="right">20</td>
+<td align="right">0.48</td>
+</tr>
+<tr class="even">
+<td align="left">males</td>
+<td align="right">22.27</td>
+<td align="right">2.15</td>
+<td align="right">20</td>
+<td align="right">0.48</td>
+</tr>
+</tbody>
+</table>
+<p>The summary of the data (See Table <a href="#tab:summary-table">3.1</a>) shows that males are approximately 2g heavier than females. Using a t.test we found that this was statistically significant (p-value = 0.012) which means that males are in fact on average larger than females. This can also be seen in Figure (ggplot)</p>
 </div>
 <div id="disscussion" class="section level1">
 <h1><span class="header-section-number">4</span> Disscussion</h1>
