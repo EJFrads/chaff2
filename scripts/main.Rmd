@@ -44,7 +44,7 @@ chaff_tidy <- pivot_longer(data = chaff_raw,
                            values_to = "mass")
 ```
 
-```{r create sumsq function}
+```{r create sumsq function, include=FALSE}
 # the double braces are used to indicate a column of a dataframe
 sum_sq <- function(df, measure, group) {
   df %>% group_by({{ group }}) %>% 
@@ -54,9 +54,20 @@ sum_sq <- function(df, measure, group) {
 sum_sq(chaff_tidy, mass, sex)
 ```
 
+```{r summary}
+chaff_sum <- chaff_tidy %>%
+  group_by(sex) %>%
+  summarise(mean = mean(mass),
+            std = sd(mass),
+            n = length(mass),
+            se = std/sqrt(n))
+```
+
+We measured the mass of `r chaff_sum$n[1]` chaffinches for both sexes and used R [@R] along with the tidyverse package [@tidy] to analyse the results to see if there is a significant difference between the mass of the sexes.
+
 # Results
 
-```{r summary function}
+```{r summary-function}
 # create function that summarizes data and includes
 # mean, sd, smaple size, se
 data_summary <- function(df, measure, group){
